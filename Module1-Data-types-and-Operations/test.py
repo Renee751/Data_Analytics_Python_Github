@@ -1,0 +1,2 @@
+variabele = "tekst"
+variabele = "testtt"
