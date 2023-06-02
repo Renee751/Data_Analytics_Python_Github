@@ -10,7 +10,7 @@ three = 2**(3 + 3) - (2 * 11) == 42
 
 # print(one,two,three)
 
-
+"""
   
 def eligible_to_vote(age, nationality):
     if age >= 18 and nationality == 'Italian':
@@ -35,3 +35,12 @@ def eligible_to_vote(age, nationality):
         return True
     else:
         return False
+    """
+    
+example_list = ['this', 'is', 'fun']
+print(str(example_list))
+print(list(str(example_list)))
+print(str(list(str(example_list))))
+print(list(str(list(str(example_list)))))
+str(list(str(list(str(example_list)))))
+# Et cetera :-)
