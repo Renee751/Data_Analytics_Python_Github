@@ -19,18 +19,44 @@ def shortest_names(countries):
 
 
 # 2. function most_vowels:
+""" mijn variant 
+
 def most_vowels(countries):
+    countries_lowercase = [x.lower() for x in countries] # alles omzetten naar kleine letters
     top3_countries = []
-    lowercase = [x.lower() for x in countries] # alles omzetten naar kleine letters
-    most_vowels_check = max(x.count('a') + x.count('e') + x.count('i')+ x.count('o')+ x.count('u') for x in lowercase)
-    for x in lowercase:
+    most_vowels_check = max(x.count('a') + x.count('e') + x.count('i')+ x.count('o')+ x.count('u') for x in countries_lowercase)
+    for x in countries_lowercase:
         if (x.count('a') + x.count('e') + x.count('i')+ x.count('o')+ x.count('u')) == most_vowels_check:
             if x not in top3_countries:
                 if len(top3_countries)<3:
                     top3_countries.append(x)  
         lowercase.remove(x)
     return top3_countries
+    
+einde mijn vriant"""
 
+def most_vowels(countries):
+    countries_lowercase = [x.lower() for x in countries] # alles omzetten naar kleine letters
+    letters_needed = ['a','e','i','o',]
+    countries_checked = []
+    for country in countries_lowercase:
+        for letter in country:
+            if letter in letters_needed:
+                letters_needed.remove(letter)
+            if country not in countries_checked:
+                countries_checked.append(country)
+            if letters_needed == "": 
+                return countries_checked
+                 
+
+#Converteer de lijst met countries naar lowercase = DONE
+#Maak een lijst aan met letters needed = DONE
+#Maak een lege lijst aan met landen die je gehad hebt = DONE
+#Loop door alle landen heen = DONE
+#Loop door alLe letters van een individueel land heen (for letter in country) = DONE
+#Als de letter van het land in de letters needed lijst zit, haal hem dan uit de lijst (letters_needed.remove(letter)) = DONE
+#Als het land nog niet in de lijst zit met landen die je gehad hebt, voeg hem hier dan aan toe = DONE
+#Als de lijst van letters_needed leeg is, return dan de lijst met countries_used = DONE
 
 ### waarom krijg ik maar 1 resultaat - en niet de top 3 terug? 
 
