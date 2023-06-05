@@ -45,8 +45,9 @@ def most_vowels(countries):
                 letters_needed.remove(letter)
             if country not in countries_checked:
                 countries_checked.append(country)
-            if letters_needed == "": 
-                return countries_checked
+            if letters_needed == "":
+                break
+    return countries_checked
                  
 
 #Converteer de lijst met countries naar lowercase = DONE
@@ -61,21 +62,30 @@ def most_vowels(countries):
 ### waarom krijg ik maar 1 resultaat - en niet de top 3 terug? 
 
 # 3. function alphabet_set
-def check_countries_all_letters_alphabet(lowercase):
-    lowercase = [x.lower() for x in countries] # alles omzetten naar kleine letters
+def check_countries_all_letters_alphabet(countries):
+    countries_lowercase = [x.lower() for x in countries] 
     alphabet = list("abcdefghijklmnopqrstuvwxyz")
     found_countries = []
-    for country in lowercase: 
+    for country in countries_lowercase: 
         for letter in country:
             if letter in alphabet:
                 alphabet.remove(letter)
             if country not in found_countries:
                 found_countries.append(country)
             if alphabet == list(""):
-                return(found_countries)
-    return
+                break
+    return(found_countries)
+    
 
 
+# 1. Converteer de lijst met countries naar lowercase 
+# 2. Maak een lijst aan met letters needed
+# 3. Maak een lege lijst aan met landen die je gehad hebt
+# 4. Loop door alle landen heen
+# 5. Loop door ale letters van een individueel land heen (for letter in country)
+# 6. Als de letter van het land in de letters needed lijst zit, haal hem dan uit de lijst (letters_needed.remove(letter))
+# 7. Als het land nog niet in de lijst zit met landen die je gehad hebt, voeg hem hier dan aan toe
+# 8. Als de lijst van letters_needed leeg is, return dan de lijst met countries_used
 
 # This block is only run if this file is the entrypoint; python main.py
 # It is not run if it is imported as a module: `from main import *`
@@ -105,16 +115,9 @@ for x in lowercase:
 
 
 #3. ALPHABET_SET STAPPENPLAN
-print(check_countries_all_letters_alphabet(lowercase))
+print(check_countries_all_letters_alphabet(countries))
 
-# 1. Converteer de lijst met countries naar lowercase
-# 2. Maak een lijst aan met letters needed
-# 3. Maak een lege lijst aan met landen die je gehad hebt
-# 4. Loop door alle landen heen
-# 5. Loop door ale letters van een individueel land heen (for letter in country)
-# 6. Als de letter van het land in de letters needed lijst zit, haal hem dan uit de lijst (letters_needed.remove(letter))
-# 7. Als het land nog niet in de lijst zit met landen die je gehad hebt, voeg hem hier dan aan toe
-# 8. Als de lijst van letters_needed leeg is, return dan de lijst met countries_used
+
 
 
 
