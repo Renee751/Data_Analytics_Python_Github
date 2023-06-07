@@ -62,8 +62,8 @@ def check_countries_all_letters_alphabet(countries):
                 alphabet.remove(letter)
                 if country not in found_countries:
                     found_countries.append(country)
-                    if alphabet == list("") and len(found_countries)==10:
-                        break
+        if alphabet == list("") and len(found_countries)<=14:
+            break
     return(found_countries)
 
 """
