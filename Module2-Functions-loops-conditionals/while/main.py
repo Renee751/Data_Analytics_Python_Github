@@ -23,19 +23,22 @@ if fact not in unique_koala_facts:
 
 """
 
-list_facts = []
-number_unique_facts = 20
-fact = random_koala_fact()
-interation_max = 1000
+
 
 def unique_koala_facts():
+    list_facts = []
+    number_unique_facts = 6
     iteration = 0
+    interation_max = 1000
+    
     while len(list_facts) < number_unique_facts:
+        fact = random_koala_fact()
         if fact not in list_facts:
             list_facts.append(fact)
-            if number_unique_facts == len(list_facts) or iteration == interation_max:
-                iteration += 1
-        break
-          
-print(unique_koala_facts())          
+        if number_unique_facts == len(list_facts) or iteration == interation_max:
+           break
+        iteration += 1
+    return list_facts    
+
+print(unique_koala_facts())
 
