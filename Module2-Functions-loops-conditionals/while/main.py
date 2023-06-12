@@ -45,40 +45,22 @@ print(unique_koala_facts(1))
 
 def num_joey_facts():
     joey_list_facts = []
-    joey_list_facts_total = []
-    #num_facts = 0
+    list_facts_total = []
     unique_count = 0
     
     while unique_count < 1000:
         joey_fact = random_koala_fact()
         if 'joeys' in joey_fact.lower():
-            #num_facts += 1
             if joey_fact not in joey_list_facts:
-                unique_count += 1 and joey_list_facts.append(joey_fact) and joey_list_facts_total.append(joey_fact)
-            if joey_list_facts_total.count(joey_fact) == 10:
+                joey_list_facts.append(joey_fact) 
+                unique_count += 1 
+            list_facts_total.append(joey_fact)
+            if list_facts_total.count(joey_fact) == 10:
                 break
     return unique_count
     
 print(num_joey_facts())
             
-        
-        
-"""     
-        iteration = 0
-    iteration_max = 1000   
-        if 'joeys' in fact.lower():
-            list_facts.append(fact) 
-            if list_facts.count(fact) == 10:
-                break
-            if iteration_max == iteration:
-                break
-        iteration += 1
-    return fact.count()
-
-print(num_joey_facts(10)) 
-   
-        
-"""
 
 
 
