@@ -43,6 +43,12 @@ def unique_koala_facts(int):
 print(unique_koala_facts(1))
 
 
+# Wat gaat er mis met onderstaande functie? Ik krijg geen resultaat. 
+## Tevens - wanneer ik de functie run lijkt vsc vast te lopen? Hij geeft geen resultaat, 
+## maar ook geen PS C: ... locatie zodat ik bijv een git commit kan schrijven. Dit gebeurd ook 
+## wanneer ik wincpy check doe. 
+
+
 def num_joey_facts():
     joey_list_facts = []
     list_facts_total = []
@@ -50,7 +56,7 @@ def num_joey_facts():
     
     while unique_count < 1000:
         joey_fact = random_koala_fact()
-        if 'joeys' in joey_fact.lower():
+        if 'joey' in joey_fact.lower():
             if joey_fact not in joey_list_facts:
                 joey_list_facts.append(joey_fact) 
                 unique_count += 1 
@@ -60,7 +66,23 @@ def num_joey_facts():
     return unique_count
     
 print(num_joey_facts())
-            
+
+#################
 
 
+weight_facts = []      
+def koala_weight():
+    iteration_count =  0
+    while iteration_count <= 100:
+        fact_weight = random_koala_fact()     
+        if 'kg' in fact_weight:
+            iteration_count += 1 
+            break
+    for word in fact_weight.split():
+        if 'kg' in word:
+            return int(word[:-3])
+         
+print(koala_weight())
 
+
+        
