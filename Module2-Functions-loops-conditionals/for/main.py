@@ -8,6 +8,7 @@ __human_name__ = "for"
 
 
 """ Write your functions here. """
+
 # 1. function shortest_names:
 def shortest_names(countries):
     found_shortest_names = []
@@ -20,39 +21,24 @@ def shortest_names(countries):
 
 
 # 2. function most_vowels:
-""" mijn variant 
-
 def most_vowels(countries):
-    countries_lowercase = [x.lower() for x in countries] # alles omzetten naar kleine letters
-    top3_countries = []
-    most_vowels_check = max(x.count('a') + x.count('e') + x.count('i')+ x.count('o')+ x.count('u') for x in countries_lowercase)
-    for x in countries_lowercase:
-        if (x.count('a') + x.count('e') + x.count('i')+ x.count('o')+ x.count('u')) == most_vowels_check:
-            if x not in top3_countries:
-                if len(top3_countries)<3:
-                    top3_countries.append(x)  
-        lowercase.remove(x)
-    return top3_countries
-    
-einde mijn vriant"""
-
-def most_vowels_countries(countries):
     # Functie om het aantal klinkers in een landnaam te tellen
     def count_vowels_countries(country):
-        vowels=['a','e','i','o',]
+        vowels = ['a', 'e', 'i', 'o', 'u']
         count = 0
         for letter in country.lower():
             if letter in vowels:
-                count +- 1
+                count += 1
         return count
     # Sorteer de landen op basis van het aantal klinkers in hun naam (in aflopende volgorde)
-    sorted_countries = sorted(countries, key=lambda x:count_vowels_countries(x), reverse = True)                 
+    sorted_countries = sorted(countries, key=lambda x:count_vowels_countries(x), reverse= True)               
     # Retourneer de top drie landen met de meeste klinkers
 
     return sorted_countries[:3]
 
+
 # 3. function alphabet_set
-def check_countries_all_letters_alphabet(countries):
+def alphabet_set(countries):
     countries_lower = [country.lower() for country in countries] 
     alphabet = list("abcdefghijklmnopqrstuvwxyz")
     found_countries = []
@@ -62,9 +48,51 @@ def check_countries_all_letters_alphabet(countries):
                 alphabet.remove(letter)
                 if country not in found_countries:
                     found_countries.append(country)
-        if alphabet == list("") and len(found_countries)<=14:
-            break
-    return(found_countries)
+        if alphabet == list() and len(found_countries)<= 1:
+            break 
+    return (found_countries)
+
+
+if __name__ == "__main__":
+    countries = get_countries()
+
+    """ Write the calls to your functions here. """
+
+
+# 1. Call function shortest_names:
+    print(shortest_names(countries))
+
+#2. Call function most_vowels:
+    print(most_vowels(countries))
+
+
+#3. ALPHABET_SET STAPPENPLAN
+    print(alphabet_set(countries))
+#print(alphabet_set(countries))
+
+#print(alphabet_set(countries))
+
+
+
+
+###
+# namen omzetten naar getallen - telling klinkers
+## for x in lowercase // for count_vowels in x  // if x == max 3 van sort_count vowels  dan print x
+# max 3 van sort_count_vowels
+
+#### PRINT MEESTE VOWELS / voordat ik het in een def zet 
+"""
+lowercase = [x.lower() for x in countries] # alles omzetten naar kleine letters
+most_vowels = max(x.count('a') + x.count('e') + x.count('i')+ x.count('o')+ x.count('u') for x in lowercase)
+
+for x in lowercase:
+   if (x.count('a') + x.count('e') + x.count('i')+ x.count('o')+ x.count('u')) == most_vowels:
+       print(x)
+"""
+
+
+# waar moet if statement alphabet staan? identation - level
+# Winphy maakt geen connectie - geen check of de opdracht goed is gegaan. 
 
 """
 def alphabet_set(countries):
@@ -112,36 +140,21 @@ def alphabet_set(countries):
 
 # This block is only run if this file is the entrypoint; python main.py
 # It is not run if it is imported as a module: `from main import *`
-if __name__ == "__main__":
-    print(shortest_names(countries))
-
-    countries = get_countries()
-
-    """ Write the calls to your functions here. """
 
 
-# 1. Call function shortest_names:
-print(shortest_names(countries))
 
-#2. Call function most_vowels:
-print(most_vowels_countries(countries))
+""" mijn variant 
 
-# namen omzetten naar getallen - telling klinkers
-## for x in lowercase // for count_vowels in x  // if x == max 3 van sort_count vowels  dan print x
-# max 3 van sort_count_vowels
-
-#### PRINT MEESTE VOWELS / voordat ik het in een def zet 
-"""
-lowercase = [x.lower() for x in countries] # alles omzetten naar kleine letters
-most_vowels = max(x.count('a') + x.count('e') + x.count('i')+ x.count('o')+ x.count('u') for x in lowercase)
-
-for x in lowercase:
-   if (x.count('a') + x.count('e') + x.count('i')+ x.count('o')+ x.count('u')) == most_vowels:
-       print(x)
-"""
-
-#3. ALPHABET_SET STAPPENPLAN
-print(check_countries_all_letters_alphabet(countries))
-#print(alphabet_set(countries))
-
-#print(alphabet_set(countries))
+def most_vowels(countries):
+    countries_lowercase = [x.lower() for x in countries] # alles omzetten naar kleine letters
+    top3_countries = []
+    most_vowels_check = max(x.count('a') + x.count('e') + x.count('i')+ x.count('o')+ x.count('u') for x in countries_lowercase)
+    for x in countries_lowercase:
+        if (x.count('a') + x.count('e') + x.count('i')+ x.count('o')+ x.count('u')) == most_vowels_check:
+            if x not in top3_countries:
+                if len(top3_countries)<3:
+                    top3_countries.append(x)  
+        lowercase.remove(x)
+    return top3_countries
+    
+einde mijn vriant"""

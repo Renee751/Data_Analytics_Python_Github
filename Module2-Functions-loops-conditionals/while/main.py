@@ -23,8 +23,6 @@ if fact not in unique_koala_facts:
 
 """
 
-
-
 def unique_koala_facts(int):
     list_facts = []
     number_unique_facts = int
@@ -36,17 +34,14 @@ def unique_koala_facts(int):
         if fact not in list_facts:
             list_facts.append(fact)
         if number_unique_facts == len(list_facts) or iteration == interation_max:
-           break
+            break
         iteration += 1
-    return list_facts    
+    return list_facts
 
 print(unique_koala_facts(1))
 
 
-# Wat gaat er mis met onderstaande functie? Ik krijg geen resultaat. 
-## Tevens - wanneer ik de functie run lijkt vsc vast te lopen? Hij geeft geen resultaat, 
-## maar ook geen PS C: ... locatie zodat ik bijv een git commit kan schrijven. Dit gebeurd ook 
-## wanneer ik wincpy check doe. 
+
 
 
 def num_joey_facts():
@@ -67,22 +62,86 @@ def num_joey_facts():
     
 print(num_joey_facts())
 
-#################
+###
 
 
-weight_facts = []      
+weight_facts = []
+
+
 def koala_weight():
-    iteration_count =  0
+    iteration_count = 0
     while iteration_count <= 100:
-        fact_weight = random_koala_fact()     
-        if 'kg' in fact_weight:
-            iteration_count += 1 
+        fact_weight = random_koala_fact()
+        if "kg" in fact_weight:
+            iteration_count += 1
             break
     for word in fact_weight.split():
-        if 'kg' in word:
+        if "kg" in word:
             return int(word[:-3])
-         
+
+
 print(koala_weight())
 
 
-        
+
+product = {
+    "name": "tofu",
+    "price": 2,
+    "producer": {
+        "name": "Tofu Company Limited",
+        "country_of_origin": "France"
+    },
+}
+
+print(product["producer"]["country_of_origin"])
+
+
+students = [
+    {
+        "name": "Ali",
+        "family_name": "Khan",
+        "skills": {
+            "Python": "beginner",
+            "JavaScript": "expert",
+        },
+        "certificates": [
+            {
+                "name": "Back-end Development",
+                "date_of_completion": "2022-01-17",
+            },
+            {
+                "name": "Back-end Development",
+                "date_of_completion": "2022-01-17",
+            },
+            {
+                "name": "Data Analytics with Python",
+                "date_of_completion": "",
+            },
+        ],
+    },
+    {
+        "name": "Jessica",
+        "family_name": "van Alphen",
+        "skills": {
+            "Python": "advanced beginner",
+            "JavaScript": "beginner",
+        },
+        "certificates": [
+            {
+                "name": "Front-end Development",
+                "date_of_completion": "",
+            },
+            {
+                "name": "Back-end Development",
+                "date_of_completion": "2022-01-17",
+            },
+            {
+                "name": "Data Analytics with Python",
+                "date_of_completion": "2020-01-17",
+            },
+        ],
+    },
+]
+
+print(students[1]["skills"]["Python"])  
+print(students[0]["certificates"][1]["name"])
