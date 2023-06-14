@@ -63,3 +63,32 @@ fingerprint_data = {
 }
 omari = add_biometric_data(omari, "finger_prints", fingerprint_data, "2022-01-12")
 print(omari)
+
+
+
+
+set_a = set([1,2,3])
+set_b = set([3,4,5])
+
+# Union
+# You can read this as 'set_a or set_b', so: 'any element that is in set a or set b'
+set_a | set_b
+print(set_a | set_b)
+
+# Difference
+set_a - set_b
+print(set_a - set_b)
+
+# Intersection
+set_a.intersection(set_b)
+print(set_a.intersection(set_b))
+
+# Checking if a set is a subset of another.
+# In other words: if the other set includes all of its own elements.
+small = set([2,3])
+big = set([1,2,3,4])
+small.issubset(big)
+
+print(small)
+print(big)
+print(small.issubset(big))
