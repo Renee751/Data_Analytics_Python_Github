@@ -5,6 +5,7 @@ __human_name__ = "files"
 # Add your code after this line
 
 import os
+import zipfile
 
 current_directory = (os.getcwd())
 print(current_directory)
@@ -12,19 +13,38 @@ print(current_directory)
 directory_list = os.listdir(current_directory)
 print(directory_list)
 
+print(os.path.exists('cache'))
+""""""
 def clean_cache():
-    current_directory = (os.getcwd())
+    current_directory = os.getcwd()
     cache_directory = os.path.join(current_directory, 'cache')
-    list_cache_dir = os.listdir(cache_directory)
     
     if os.path.exists('cache') == True:
-        for files in list_cache_dir:
-            os.remove(os.path.join(cache_directory, files))
+        list_cache_dir = os.listdir(cache_directory)
+        if list_cache_dir:
+            for files in list_cache_dir:
+                os.remove(os.path.join(cache_directory, files))
     else: 
         os.mkdir('cache')
     return
+
+
 clean_cache()
+
 
 directory_list = os.listdir(current_directory)
 print(directory_list)
+
+current_directory = (os.getcwd())
+zip_file_path = os.path.join(current_directory, 'data.zip')
+cache_dir_path = os.path.join(current_directory, 'cache')
+
+with zipfile.ZipFile(zip_file_path,'r') as zip:
+    zip.printdir()
+
+print(cache_dir_path)
+
+def cache_zip(zip_file_path, cache_dir_path):
+    with zipfile.ZipFile(zip_file_path, 'r') as zip:
+        zip.extractall(cache_dir_path)
 
