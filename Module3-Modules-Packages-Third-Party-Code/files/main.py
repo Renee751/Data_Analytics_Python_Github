@@ -14,7 +14,7 @@ directory_list = os.listdir(current_directory)
 print(directory_list)
 
 print(os.path.exists('cache'))
-""""""
+
 def clean_cache():
     current_directory = os.getcwd()
     cache_directory = os.path.join(current_directory, 'cache')
@@ -48,3 +48,30 @@ def cache_zip(zip_file_path, cache_dir_path):
     with zipfile.ZipFile(zip_file_path, 'r') as zip:
         zip.extractall(cache_dir_path)
 
+
+def cached_files():
+        list_absolute = []
+        current_directory = os.getcwd()
+        cache_directory = os.path.join(current_directory, 'cache')
+        file_list = os.listdir(cache_directory)
+        for file in file_list:
+            abs_file = os.path.join(cache_directory, f'{file}')
+            list_absolute.append(abs_file)
+        return list_absolute
+
+def find_password(list_absolute):
+    text = 'password'
+    password =[]
+    for files in list_absolute:
+        with open(files, 'r') as checking_file:
+            lines = checking_file.readlines()
+            for line in lines:
+                if text in line:
+                    password_line = line.strip()
+                    password = (password_line[password_line.find(' ')+1:])
+                    break
+    return password
+
+list_absolute = cached_files()
+password = find_password(list_absolute)
+print(find_password(list_absolute))
